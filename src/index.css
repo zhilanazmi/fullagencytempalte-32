@@ -1,47 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* TEDxITENAS Design System - Following brand guidelines */
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    /* TEDx Brand Colors */
+    --tedx-red: 348 100% 53%;         /* #eb0028 */
+    --tedx-white: 0 0% 100%;          /* #ffffff */
+    --tedx-black: 0 0% 0%;            /* #000000 */
+    
+    /* Event Identity Colors */
+    --event-yellow: 48 100% 60%;      /* #ffcc33 */
+    --event-dark-blue: 210 100% 20%;  /* #003366 */
+    --event-cyan: 180 50% 60%;        /* #66cccc */
+    --event-purple: 270 33% 40%;      /* #663366 */
 
-    --card: 0 0% 0%;
+    /* Design System Colors using TEDx palette */
+    --background: 0 0% 0%;            /* Black */
+    --foreground: 0 0% 100%;          /* White */
+
+    --card: 0 0% 5%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 0%;
+    --popover: 0 0% 8%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 348 100% 53%;          /* TEDx Red */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 25%;
+    --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 15%;
+    --muted: 0 0% 10%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 0 0% 25%;
+    --accent: 348 100% 53%;           /* TEDx Red for accents */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 0 0% 100%;
-
-    /* Custom hero tokens */
-    --hero-glow: 220 100% 70%;
-    --hero-accent: 280 100% 70%;
-
-    /* Custom gradient */
-    --gradient-multicolor: linear-gradient(147deg, #4B73FF 0%, #FF66F4 17%, #FF0105 39%, #FE7B02 59%);
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 348 100% 53%;             /* TEDx Red */
 
     --radius: 0.5rem;
 
@@ -107,13 +112,150 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 
-  .gradient-text {
-    background: var(--gradient-multicolor);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* Typography Classes following TEDx Brand Guidelines */
+  .tedx-headline {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: hsl(var(--tedx-red));
+  }
+  
+  .tedx-subheadline {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: normal;
+  }
+  
+  .event-title {
+    font-family: 'Inter', sans-serif; /* fallback for LT Saeada */
+    font-weight: 700;
+  }
+  
+  .event-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+  }
+  
+  .promo-text {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+  }
+}
+
+@layer components {
+  /* TEDx Button Styles */
+  .tedx-cta-button {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider transition-all duration-300;
+  }
+  
+  /* Animation Classes */
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  .hover-zoom {
+    @apply transition-transform duration-300 hover:scale-110;
+  }
+  
+  .typing-animation {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--tedx-red));
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+}
+
+@layer utilities {
+  /* Brand Colors as Utilities */
+  .text-tedx-red {
+    color: hsl(var(--tedx-red));
+  }
+  
+  .bg-tedx-red {
+    background-color: hsl(var(--tedx-red));
+  }
+  
+  .text-event-yellow {
+    color: hsl(var(--event-yellow));
+  }
+  
+  .bg-event-yellow {
+    background-color: hsl(var(--event-yellow));
+  }
+  
+  .text-event-dark-blue {
+    color: hsl(var(--event-dark-blue));
+  }
+  
+  .bg-event-dark-blue {
+    background-color: hsl(var(--event-dark-blue));
+  }
+  
+  .text-event-cyan {
+    color: hsl(var(--event-cyan));
+  }
+  
+  .bg-event-cyan {
+    background-color: hsl(var(--event-cyan));
+  }
+  
+  .text-event-purple {
+    color: hsl(var(--event-purple));
+  }
+  
+  .bg-event-purple {
+    background-color: hsl(var(--event-purple));
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: hsl(var(--tedx-red));
   }
 }

@@ -65,8 +65,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'hero-glow': 'hsl(var(--hero-glow))',
-				'hero-accent': 'hsl(var(--hero-accent))'
+				// TEDx Brand Colors
+				'tedx-red': 'hsl(var(--tedx-red))',
+				'tedx-white': 'hsl(var(--tedx-white))',
+				'tedx-black': 'hsl(var(--tedx-black))',
+				// Event Identity Colors
+				'event-yellow': 'hsl(var(--event-yellow))',
+				'event-dark-blue': 'hsl(var(--event-dark-blue))',
+				'event-cyan': 'hsl(var(--event-cyan))',
+				'event-purple': 'hsl(var(--event-purple))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
